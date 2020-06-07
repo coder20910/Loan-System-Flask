@@ -1,0 +1,4 @@
+mysql_host: "localhost"
+mysql_user: "mysql://root:@localhost/pybabu",
+mysql_password: "Mysql@2019"
+mysql_db: "flog_db"

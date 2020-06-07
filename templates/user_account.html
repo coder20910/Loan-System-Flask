@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panel</h1>
+            <span class="subheading">Here manage your website</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+<div class="container">
+    <h3>User Account</h3>          
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Account No.</th>
+          <th>Name</th>
+          <th>Mobile No.</th>
+          <th>Email</th>
+          <th>Loan Amount</th>
+          <th>Paid Amount</th>
+          <th>Remaining Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        {% for post in user_details %}
+          <td>{{post.Account}}</td>
+          <td>{{post.Name}}</td>
+          <td>{{post.Mobile}}</td>
+          <td>{{post.Email}}</td>
+          <td>{{post.total}}</td>
+          <td>{{post.paid}}</td>
+          <td>{{post.remaining}}</td>
+        {% endfor %}
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+<div class="container">
+  <h3>Action</h3>
+  <form  action="{{ url_for('manipulation') }}" method="POST">
+    <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th><center>Enter Amount</center></th>
+        <th><center>Credit</center></th>
+        <th><Center>Debit</Center></th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><center><input type="tel" placeholder="Enter amount" name="amount" style="border: 1px soid green; padding:5px 20px; color:black;"></center></td>
+      <td><a href=""><center><button name="btn" value="credit" type="submit" style="background-color: green; border: 1px soid white; padding:5px 10px; color:white;">Credit</button></a></center></td>
+      <td><a href=""><center><button  name="btn" value="debit" type="submit" style="background-color: red; border: 1px soid white; padding:5px 10px; color:white;">Debit</button></a></center></td>
+    </tr>
+    </tbody>
+    </table>
+  </form>
+</div>
+
+
+<div class="container">
+    <h3>Transaction Table</h3>          
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Date & Time</th>
+          <th>Debit</th>
+          <th>Credit</th>
+        </tr>
+      </thead>
+      {% for post in transactions %}
+
+        <tr>
+          <td>{{post.date}}</td>
+          <td>{{post.debit}}</td>
+          <td>{{post.credit}}</td>
+        </tr>
+
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

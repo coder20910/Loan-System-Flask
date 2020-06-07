@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">   
+
+
+            <h3>Search User</h3>
+            <form  method="POST">
+              <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th><center>Enter account no.</center></th>
+                  <th><center>Go to user account</center></th>
+                </tr>
+
+              </thead>
+              <tbody>
+              <tr>
+                <td><center><input type="tel" id="account" placeholder="Enter account no" name="account" style="border: 1px soid green; padding:5px 20px; color:black;"></center></td>
+                <td><center><button type="submit" style="background-color: green; border: 1px soid white; padding:5px 10px; color:white;">Search</button></center></td>
+              </tr>
+              </tbody>
+              </table>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+{% endblock %}
